@@ -1,8 +1,8 @@
 {
   "name": "movies-explorer-api",
   "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
+  "description": "api for diploma project",
+  "main": "app.js",
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",
