@@ -39,7 +39,6 @@ app.post(
     [Segments.BODY]: {
       email: Joi.string().email().required(),
       password: Joi.string().required(),
-      name: Joi.string().required().min(2).max(30),
     },
   }),
   login,
@@ -49,17 +48,9 @@ app.post(
   '/signup',
   celebrate({
     [Segments.BODY]: {
-      country: Joi.string().required().min(2),
-      director: Joi.string().required(),
-      duration: Joi.number().required(),
-      year: Joi.string().required().length(4),
-      description: Joi.string().required(),
-      image: Joi.string().required(),
-      trailer: Joi.string().required(),
-      thumbnail: Joi.string().required(),
-      movieId: Joi.number().required(),
-      nameRU: Joi.string().required(),
-      nameEN: Joi.string().required(),
+      email: Joi.string().email().required(),
+      password: Joi.string().required().min(8).max(35),
+      name: Joi.string().required().min(2).max(30),
     },
   }),
   createUser,
