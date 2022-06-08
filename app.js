@@ -1,4 +1,5 @@
 const express = require('express');
+
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
@@ -16,11 +17,11 @@ const { login, createUser } = require('./controllers/users');
 const auth = require('./middlewares/auth');
 const errorHandler = require('./middlewares/error');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
-//const cors = require('./middlewares/cors');
+// const cors = require('./middlewares/cors');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-//app.use(cors);
+// app.use(cors);
 
 mongoose.connect('mongodb://localhost:27017/moviesdb');
 
@@ -38,6 +39,7 @@ app.post(
     [Segments.BODY]: {
       email: Joi.string().email().required(),
       password: Joi.string().required(),
+      name: Joi.string().required().min(2).max(30),
     },
   }),
   login,
@@ -47,9 +49,17 @@ app.post(
   '/signup',
   celebrate({
     [Segments.BODY]: {
-      name: Joi.string().min(2).max(30),
-      email: Joi.string().required().email(),
-      password: Joi.string().required(),
+      country: Joi.string().required().min(2),
+      director: Joi.string().required(),
+      duration: Joi.number().required(),
+      year: Joi.string().required().length(4),
+      description: Joi.string().required(),
+      image: Joi.string().required(),
+      trailer: Joi.string().required(),
+      thumbnail: Joi.string().required(),
+      movieId: Joi.number().required(),
+      nameRU: Joi.string().required(),
+      nameEN: Joi.string().required(),
     },
   }),
   createUser,
