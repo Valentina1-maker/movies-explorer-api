@@ -2,7 +2,7 @@
   "name": "movies-explorer-api",
   "version": "0.0.1",
   "description": "api for diploma project",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",
