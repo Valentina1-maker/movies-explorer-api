@@ -29,6 +29,8 @@ app.get('/crash-test', () => {
   }, 0);
 });
 
+app.use(require('./routes/auth'));
+
 app.use(auth);
 
 app.use(require('./routes/users'));
