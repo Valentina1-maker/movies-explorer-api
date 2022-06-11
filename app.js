@@ -9,11 +9,8 @@ const { PORT = 3001 } = process.env;
 const app = express();
 app.use(express.json());
 
-const {
-  celebrate, Joi, errors: celebrateError, Segments,
-} = require('celebrate');
+const { errors: celebrateError } = require('celebrate');
 const CommonError = require('./errors/CommonError');
-const { login, createUser } = require('./controllers/users');
 const auth = require('./middlewares/auth');
 const errorHandler = require('./middlewares/error');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
@@ -30,29 +27,6 @@ app.get('/crash-test', () => {
     throw new Error('Сервер сейчас упадёт');
   }, 0);
 });
-
-app.post(
-  '/signin',
-  celebrate({
-    [Segments.BODY]: {
-      email: Joi.string().email().required(),
-      password: Joi.string().required(),
-    },
-  }),
-  login,
-);
-
-app.post(
-  '/signup',
-  celebrate({
-    [Segments.BODY]: {
-      name: Joi.string().required().min(2).max(30),
-      email: Joi.string().email().required(),
-      password: Joi.string().required().min(8).max(35),
-    },
-  }),
-  createUser,
-);
 
 app.use(auth);
 
