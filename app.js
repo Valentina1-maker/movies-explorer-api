@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 require('dotenv').config();
 
 const { PORT = 3001 } = process.env;
+const { MONGO_ADRESS = 'mongodb://localhost:27017/moviesdb' } = process.env;
 const app = express();
 app.use(express.json());
 
@@ -18,7 +19,7 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-mongoose.connect('mongodb://localhost:27017/moviesdb');
+mongoose.connect(MONGO_ADRESS);
 
 app.use(requestLogger);
 
