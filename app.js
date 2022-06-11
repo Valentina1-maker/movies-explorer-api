@@ -30,8 +30,8 @@ app.get('/crash-test', () => {
 
 app.use(auth);
 
-app.use('/', require('./routes/users'));
-app.use('/', require('./routes/movies'));
+app.use(require('./routes/users'));
+app.use(require('./routes/movies'));
 
 app.use((req, res, next) => {
   next(new CommonError(404, 'Страница не найдена'));
