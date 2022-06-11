@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "npx eslint ."
   },
   "repository": {
     "type": "git",
@@ -31,11 +32,10 @@
     "winston": "^3.7.2"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.27.1",
-    "@typescript-eslint/parser": "^5.27.1",
     "eslint": "^8.17.0",
     "eslint-config-airbnb": "^19.0.4",
-    "eslint-plugin-react": "^7.30.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
     "nodemon": "^2.0.16"
   }
 }
