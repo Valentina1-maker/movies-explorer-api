@@ -2,7 +2,7 @@ const router = require('express').Router();
 const {
   celebrate, Joi, Segments,
 } = require('celebrate');
-const { login, createUser } = require('../controllers/movies');
+const { login, createUser } = require('../controllers/users');
 
 router.post(
   '/signin',
