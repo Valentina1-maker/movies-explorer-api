@@ -2,4 +2,4 @@
 
 Сервис, в котором пользователь может найти фильмы по запросу и сохранить в личном кабинете (облегченный аналог Кинопоиска).
 
-:link: - [Домен сервера (бэкенд)](https://api.diploma.master.nomoredomains.xyz/movies)
+:link: - [Домен сервера (бэкенд)](https://api.diploma.master.nomoredomains.xyz)
