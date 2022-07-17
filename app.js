@@ -1,5 +1,5 @@
 const express = require('express');
-
+const cors = require('cors');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
@@ -10,6 +10,7 @@ const { MONGO_ADRESS = 'mongodb://localhost:27017/moviesdb' } = process.env;
 const app = express();
 app.use(express.json());
 
+app.use(cors());
 const { errors: celebrateError } = require('celebrate');
 const CommonError = require('./errors/CommonError');
 const auth = require('./middlewares/auth');

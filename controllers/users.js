@@ -47,6 +47,13 @@ module.exports.updateProfile = (req, res, next) => {
         next(new CommonError(404, 'Пользователь с указанным _id не найден.'));
       }
     })
+    .catch((e) => {
+      if (e.ok === 0 && e.code === 11000) {
+        next(new CommonError(400, 'Такой email занят'));
+      } else {
+        next(e);
+      }
+    })
     .catch(next);
 };
 
